@@ -1,0 +1,5 @@
+name: RegionHelper
+version: @version@
+main: kim.minecraft.regionhelper.RegionHelper
+api-version: 1.16
+authors: [shakoeyibb]
