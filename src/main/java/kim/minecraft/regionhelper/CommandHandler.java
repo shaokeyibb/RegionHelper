@@ -31,7 +31,7 @@ public class CommandHandler implements CommandExecutor {
                             return false;
                         }
                     } else {
-                        player.sendMessage("&cå°šæœªå®Œæˆåœˆç‚¹ï¼Œè¯·ä½¿ç”¨ " + Region.TOOL + "åœ¨äºŒç»´å¹³é¢ä¸Šåœˆç‚¹");
+                        player.sendMessage("&cÉĞÎ´Íê³ÉÈ¦µã£¬ÇëÊ¹ÓÃ " + Region.TOOL + "ÔÚ¶şÎ¬Æ½ÃæÉÏÈ¦µã");
                         return true;
                     }
                 }
@@ -39,14 +39,14 @@ public class CommandHandler implements CommandExecutor {
                 if (args.length == 2) {
                     if (!(sender instanceof Player)) {
                         RegionHelper.getInstance().getStorage().getRegions().remove(args[1]);
-                        sender.sendMessage("åˆ é™¤åŒºåŸŸæˆåŠŸï¼");
+                        sender.sendMessage("É¾³ıÇøÓò³É¹¦£¡");
                     } else {
                         Player player = (Player) sender;
                         if (RegionHelper.getInstance().getStorage().getRegions().get(args[1]).getUser().equals(player.getUniqueId()) || player.hasPermission(Region.ADMIN_PERMISSION)) {
                             RegionHelper.getInstance().getStorage().getRegions().remove(args[1]);
-                            player.sendMessage("åˆ é™¤åŒºåŸŸæˆåŠŸï¼");
+                            player.sendMessage("É¾³ıÇøÓò³É¹¦£¡");
                         } else {
-                            player.sendMessage("ä½ æ²¡æœ‰æƒé™åˆ é™¤åˆ«äººçš„åŒºåŸŸï¼");
+                            player.sendMessage("ÄãÃ»ÓĞÈ¨ÏŞÉ¾³ı±ğÈËµÄÇøÓò£¡");
                         }
                     }
                     return true;
@@ -57,15 +57,15 @@ public class CommandHandler implements CommandExecutor {
                 if (args.length == 3) {
                     if (!(sender instanceof Player)) {
                         RegionHelper.getInstance().getStorage().getRegions().get(args[1]).setMessage(args[2]);
-                        sender.sendMessage("è®¾ç½®åŒºåŸŸä¿¡æ¯æˆåŠŸï¼");
+                        sender.sendMessage("ÉèÖÃÇøÓòĞÅÏ¢³É¹¦£¡");
                         return true;
                     }else {
                         Player player = (Player) sender;
                         if (RegionHelper.getInstance().getStorage().getRegions().get(args[1]).getUser().equals(player.getUniqueId()) || player.hasPermission(Region.ADMIN_PERMISSION)) {
                             RegionHelper.getInstance().getStorage().getRegions().get(args[1]).setMessage(args[2]);
-                            player.sendMessage("è®¾ç½®åŒºåŸŸæ¶ˆæ¯æˆåŠŸï¼");
+                            player.sendMessage("ÉèÖÃÇøÓòÏûÏ¢³É¹¦£¡");
                         } else {
-                            player.sendMessage("ä½ æ²¡æœ‰æƒé™è®¾ç½®åˆ«äººåŒºåŸŸçš„æ¶ˆæ¯ï¼");
+                            player.sendMessage("ÄãÃ»ÓĞÈ¨ÏŞÉèÖÃ±ğÈËÇøÓòµÄÏûÏ¢£¡");
                         }
                     }
                     return true;

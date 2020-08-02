@@ -21,10 +21,10 @@ public class Logic implements Listener {
     public void onPlayerInteract(PlayerInteractEvent e) {
         if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
             RegionHelper.getInstance().getStorage().getPos(e.getPlayer().getUniqueId()).setPos1(e.getClickedBlock().getLocation());
-            e.getPlayer().sendMessage("ç‚¹1å·²è®¾ç½®");
+            e.getPlayer().sendMessage("µã1ÒÑÉèÖÃ");
         } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             RegionHelper.getInstance().getStorage().getPos(e.getPlayer().getUniqueId()).setPos2(e.getClickedBlock().getLocation());
-            e.getPlayer().sendMessage("ç‚¹2å·²è®¾ç½®");
+            e.getPlayer().sendMessage("µã2ÒÑÉèÖÃ");
         }
     }
 }
