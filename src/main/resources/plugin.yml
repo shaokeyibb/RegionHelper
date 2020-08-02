@@ -3,3 +3,11 @@ version: @version@
 main: kim.minecraft.regionhelper.RegionHelper
 api-version: 1.16
 authors: [shakoeyibb]
+
+commands:
+  regionhelper:
+    aliases: [rh]
+    permission: RegionHelper.use
+    permission-message: "§c你没有权限这么做!"
+    description: RegionHelper Command
+    usage: /regionhelper [create/remove/setmessage] [name] (message)
