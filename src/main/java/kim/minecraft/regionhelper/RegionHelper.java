@@ -29,7 +29,7 @@ public final class RegionHelper extends JavaPlugin {
 
         storage.startAutoSave();
 
-        Bukkit.getPluginManager().registerEvents(new Logic(),this);
+        Bukkit.getPluginManager().registerEvents(new Logic(), this);
 
         Bukkit.getPluginCommand("regionhelper").setExecutor(new CommandHandler());
     }

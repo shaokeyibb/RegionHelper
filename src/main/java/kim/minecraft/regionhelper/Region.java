@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Region {
 
     public final static Material TOOL = Material.WOODEN_SHOVEL;
-    public final static String ADMIN_PERMISSION = "RegionHelper.admin";
+    public final static String ADMIN_PREMISSION = "RegionHelper.admin";
 
     @Getter
     private final String index;
@@ -35,7 +35,7 @@ public class Region {
     }
 
     public static void createRegion(String index, UUID user, Location loc1, Location loc2, String message) {
-        RegionHelper.getInstance().getStorage().getRegions().put(index,new Region(index, user, loc1, loc2, message));
+        RegionHelper.getInstance().getStorage().getRegions().put(index, new Region(index, user, loc1, loc2, message));
     }
 
 

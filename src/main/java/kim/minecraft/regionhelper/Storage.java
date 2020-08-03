@@ -19,9 +19,9 @@ import java.util.*;
 public class Storage {
 
     @Getter
-    private final Map<String,Region> regions;
+    private final Map<String, Region> regions;
 
-    private final Map<UUID,SelectPos> posMap = new HashMap<>();
+    private final Map<UUID, SelectPos> posMap = new HashMap<>();
 
     public Storage() {
         RegionHelper.getInstance().saveDefaultConfig();
@@ -46,7 +46,7 @@ public class Storage {
 
     public void saveAll() throws IOException {
         FileConfiguration file = new YamlConfiguration();
-        regions.forEach((index,region) -> {
+        regions.forEach((index, region) -> {
             file.set(index, null);
             file.set(index + ".User", region.getUser().toString());
             file.set(index + ".Loc1", null);
