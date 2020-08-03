@@ -26,7 +26,7 @@ public class CommandHandler implements CommandExecutor {
                                         player.getUniqueId(),
                                         RegionHelper.getInstance().getStorage().getPos(player.getUniqueId()).getPos1(),
                                         RegionHelper.getInstance().getStorage().getPos(player.getUniqueId()).getPos2(),
-                                        args[2]);
+                                        args[2].replace('&','§'));
                                 player.sendMessage("创建区域成功！");
                             } else {
                                 player.sendMessage("已经存在一个名为" + args[1] + "的区域了");
@@ -36,7 +36,7 @@ public class CommandHandler implements CommandExecutor {
                             return false;
                         }
                     } else {
-                        player.sendMessage("&c尚未完成圈点，请使用 " + Region.TOOL + "在二维平面上圈点");
+                        player.sendMessage("§c尚未完成圈点，请使用 " + Region.TOOL + "在二维平面上圈点");
                         return true;
                     }
                 }
@@ -70,7 +70,7 @@ public class CommandHandler implements CommandExecutor {
                 if (args.length == 3) {
                     if (!(sender instanceof Player)) {
                         if (RegionHelper.getInstance().getStorage().getRegions().containsKey(args[1])) {
-                            RegionHelper.getInstance().getStorage().getRegions().get(args[1]).setMessage(args[2]);
+                            RegionHelper.getInstance().getStorage().getRegions().get(args[1]).setMessage(args[2].replace('&','§'));
                             sender.sendMessage("设置区域信息成功！");
                         } else {
                             sender.sendMessage("找不到一个名为" + args[1] + "的区域");
@@ -79,7 +79,7 @@ public class CommandHandler implements CommandExecutor {
                         Player player = (Player) sender;
                         if (RegionHelper.getInstance().getStorage().getRegions().get(args[1]).getUser().equals(player.getUniqueId()) || player.hasPermission(Region.ADMIN_PREMISSION)) {
                             if (RegionHelper.getInstance().getStorage().getRegions().containsKey(args[1])) {
-                                RegionHelper.getInstance().getStorage().getRegions().get(args[1]).setMessage(args[2]);
+                                RegionHelper.getInstance().getStorage().getRegions().get(args[1]).setMessage(args[2].replace('&','§'));
                                 sender.sendMessage("设置区域信息成功！");
                             } else {
                                 sender.sendMessage("找不到一个名为" + args[1] + "的区域");
