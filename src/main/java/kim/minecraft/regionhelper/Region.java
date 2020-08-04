@@ -41,9 +41,9 @@ public class Region {
 
     @Nullable
     public static Region getRegionThatPlayerJoinInRightNow(Player player) {
-        Location loc = player.getLocation();
-        int playerX = loc.getBlockX();
-        int playerZ = loc.getBlockZ();
+        Region region1 = null;
+        int x = player.getLocation().getBlockX();
+        int z = player.getLocation().getBlockZ();
         for (Region region : RegionHelper.getInstance().getStorage().getRegions().values()) {
             Location loc1 = region.getLoc1();
             Location loc2 = region.getLoc2();
@@ -51,15 +51,17 @@ public class Region {
             int highX = loc2.getBlockX() - loc1.getBlockX() <= 0 ? loc1.getBlockX() : loc2.getBlockX();
             int lowZ = loc2.getBlockZ() - loc1.getBlockZ() >= 0 ? loc1.getBlockZ() : loc2.getBlockZ();
             int highZ = loc2.getBlockZ() - loc1.getBlockZ() <= 0 ? loc1.getBlockZ() : loc2.getBlockZ();
-            if (playerX >= lowX && playerX <= highX) {
-                if (playerZ == lowZ || playerZ == highZ) {
-                    return region;
-                }
-            } else if (playerZ >= lowZ && playerZ <= highZ) {
-                if (playerX == lowX || playerX == highX) {
-                    return region;
+            if (x >= lowX && x <= highX) {
+                if (z == lowZ || z == highZ) {
+                    region1 = region;
                 }
             }
+            if (z >= lowZ && z <= highZ) {
+                if (x == lowX || x == highX) {
+                    region1 = region;
+                }
+            }
+            return region1;
         }
         return null;
     }

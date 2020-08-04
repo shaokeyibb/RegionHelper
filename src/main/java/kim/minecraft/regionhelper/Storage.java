@@ -23,6 +23,8 @@ public class Storage {
 
     private final Map<UUID, SelectPos> posMap = new HashMap<>();
 
+    private final Map<UUID,Region> inRegion = new HashMap<>();
+
     public Storage() {
         RegionHelper.getInstance().saveDefaultConfig();
         regions = new HashMap<>();
@@ -78,6 +80,14 @@ public class Storage {
             posMap.put(playerUUID, new SelectPos());
         }
         return posMap.get(playerUUID);
+    }
+
+    public Region getInRegion(UUID playerUUID){
+        return inRegion.get(playerUUID);
+    }
+
+    public void setInRegion(UUID playerUUID,Region region){
+        inRegion.put(playerUUID, region);
     }
 
     public static class SelectPos {
